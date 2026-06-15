@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark text-white font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-gold-500 text-dark;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-600 rounded-full;
+  }
+}
+
+@layer components {
+  .gold-text {
+    background: linear-gradient(135deg, #c9a84c 0%, #f5d98b 50%, #c9a84c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500 hover:bg-white/10 hover:border-gold-500/30 hover:-translate-y-2 hover:shadow-2xl;
+    --tw-shadow-color: rgba(201, 168, 76, 0.15);
+  }
+
+  .btn-gold {
+    @apply relative px-8 py-3.5 rounded-full font-body font-semibold text-dark overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, #c9a84c 0%, #f5d98b 50%, #c9a84c 100%);
+    background-size: 200% auto;
+  }
+
+  .btn-gold:hover {
+    background-position: right center;
+    @apply shadow-lg scale-105;
+    box-shadow: 0 0 32px rgba(201, 168, 76, 0.4);
+  }
+
+  .btn-ghost {
+    @apply px-8 py-3.5 rounded-full font-body font-medium border border-gold-500/50 text-gold-400 transition-all duration-300 hover:bg-gold-500/10 hover:border-gold-400;
+  }
+
+  .section-label {
+    @apply text-xs font-mono tracking-[0.3em] uppercase text-gold-500 mb-3;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-semibold text-white leading-tight;
+  }
+}
+
+/* Animated mesh background */
+.animated-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(20, 20, 25, 0.9) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(10, 10, 15, 0.95) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(5, 5, 8, 0.8) 0%, transparent 60%),
+    #0A0A0A;
+  animation: meshDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes meshDrift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(5deg); }
+}
+
+/* Floating orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orbFloat var(--duration, 10s) ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  100% { transform: translate(var(--tx, 30px), var(--ty, -20px)) scale(1.1); opacity: 0.6; }
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #c9a84c;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 0.9s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Fade-in-up utility */
+.fade-in-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+.fade-in-up-delay-1 { animation-delay: 0.15s; }
+.fade-in-up-delay-2 { animation-delay: 0.30s; }
+.fade-in-up-delay-3 { animation-delay: 0.45s; }
+.fade-in-up-delay-4 { animation-delay: 0.60s; }
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Splash screen glow */
+.splash-glow {
+  filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.45));
+  animation: splashGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes splashGlow {
+  0% { filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.3)); }
+  100% { filter: drop-shadow(0 0 26px rgba(201, 168, 76, 0.7)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, .orb, .animated-mesh, .typewriter-cursor {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Hero title responsive font sizes */
+.hero-title {
+  font-size: 4rem;
+}
+
+@media (min-width: 950px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem !important;
+  }
+}
+
+/* Service card hover effect — desktop (pointer devices) */
+.service-card .service-description {
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin 0.3s ease;
+}
+
+.service-card:hover .service-description {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+/*
+ * On touch devices (phones/tablets) there is no hover event, so descriptions
+ * are always visible to ensure mobile users can read service details.
+ */
+@media (hover: none) {
+  .service-card .service-description {
+    max-height: 200px !important;
+    opacity: 1 !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Floating gold particles */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  background-color: #c9a84c;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp linear infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
+/* Forzar visibilidad de descripciones en dispositivos táctiles (sin hover) */
+@media (hover: none) {
+  .service-description {
+    max-height: 200px !important;
+    opacity: 1 !important;
+    margin-top: 0.5rem !important;
+  }
+}

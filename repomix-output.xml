@@ -1,0 +1,3124 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+eslint.config.js
+index.html
+package.json
+postcss.config.js
+public/favicon.svg
+public/icons.svg
+public/icons/icon-192.png
+public/icons/icon-512.png
+public/manifest.json
+public/robots.txt
+public/sitemap.xml
+README.md
+src/App.jsx
+src/assets/hero.png
+src/components/ErrorBoundary.jsx
+src/components/FAQ.jsx
+src/components/Footer.jsx
+src/components/Gallery.jsx
+src/components/Header.jsx
+src/components/Hero.jsx
+src/components/InstallBanner.jsx
+src/components/MapSection.jsx
+src/components/Philosophy.jsx
+src/components/Reviews.jsx
+src/components/Services.jsx
+src/components/SplashScreen.jsx
+src/components/ui/AnimatedBackground.jsx
+src/components/ui/GlassCard.jsx
+src/components/ui/ScrollReveal.jsx
+src/components/ui/SectionWrapper.jsx
+src/components/ui/StarRating.jsx
+src/components/WhatsAppButton.jsx
+src/context/AuthContext.jsx
+src/context/i18nContext.jsx
+src/hooks/usePWAInstall.js
+src/hooks/useScrollReveal.js
+src/hooks/useTypewriter.js
+src/index.css
+src/lib/firebase.js
+src/locales/en.js
+src/locales/es.js
+src/main.jsx
+tailwind.config.js
+vite.config.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      globals: globals.browser,
+      parserOptions: { ecmaFeatures: { jsx: true } },
+    },
+  },
+])
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Touchê — Costura & Arreglos de Precisión" />
+    <meta property="og:description" content="Reparaciones y ajustes de alta calidad en Surco, Lima. Agenda tu cita con Johanny Garcia." />
+    <meta property="og:image" content="https://tu-dominio.com/icons/icon-512.png" />
+    <meta property="og:url" content="https://tu-dominio.com" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="Touchê" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Touchê — Costura & Arreglos de Precisión" />
+    <meta name="twitter:description" content="Reparaciones de precisión en Surco, Lima." />
+    <meta name="twitter:image" content="https://tu-dominio.com/icons/icon-512.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c9a84c" />
+    <meta name="description" content="Touchê — Costura y arreglos premium por Johanny Garcia en Surco, Lima. Reparaciones de precisión para tus prendas favoritas." />
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="Touchê — Costura & Arreglos de Precisión" />
+    <meta property="og:description" content="Reparaciones y ajustes de alta calidad en Surco, Lima. Agenda tu cita con Johanny Garcia." />
+    <meta property="og:image"       content="/icons/icon-512.png" />
+    <meta property="og:url"         content="https://tu-dominio.com" />
+    <meta property="og:locale"      content="es_PE" />
+    <meta property="og:site_name"   content="Touchê" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card"        content="summary" />
+    <meta name="twitter:title"       content="Touchê — Costura & Arreglos de Precisión" />
+    <meta name="twitter:description" content="Reparaciones y ajustes de alta calidad en Surco, Lima." />
+    <meta name="twitter:image"       content="/icons/icon-512.png" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Touchê — Costura & Arreglos en Surco, Lima</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="package.json">
+{
+  "name": "touche",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^10.12.0",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.383.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.3.1",
+    "vite-plugin-pwa": "^0.20.5"
+  }
+}
+</file>
+
+<file path="postcss.config.js">
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+</file>
+
+<file path="public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="46" fill="none" viewBox="0 0 48 46"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z" style="fill:#863bff;fill:color(display-p3 .5252 .23 1);fill-opacity:1"/><mask id="a" width="48" height="46" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#000" d="M25.842 44.938c-.664.844-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.183c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.498 0-3.579-1.842-3.579H1.133c-.92 0-1.456-1.04-.92-1.787L9.91.473c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.578 1.842 3.578h11.377c.943 0 1.473 1.088.89 1.832L25.843 44.94z" style="fill:#000;fill-opacity:1"/></mask><g mask="url(#a)"><g filter="url(#b)"><ellipse cx="5.508" cy="14.704" fill="#ede6ff" rx="5.508" ry="14.704" style="fill:#ede6ff;fill:color(display-p3 .9275 .9033 1);fill-opacity:1" transform="matrix(.00324 1 1 -.00324 -4.47 31.516)"/></g><g filter="url(#c)"><ellipse cx="10.399" cy="29.851" fill="#ede6ff" rx="10.399" ry="29.851" style="fill:#ede6ff;fill:color(display-p3 .9275 .9033 1);fill-opacity:1" transform="matrix(.00324 1 1 -.00324 -39.328 7.883)"/></g><g filter="url(#d)"><ellipse cx="5.508" cy="30.487" fill="#7e14ff" rx="5.508" ry="30.487" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.814 -25.913 -14.639)scale(1 -1)"/></g><g filter="url(#e)"><ellipse cx="5.508" cy="30.599" fill="#7e14ff" rx="5.508" ry="30.599" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.814 -32.644 -3.334)scale(1 -1)"/></g><g filter="url(#f)"><ellipse cx="5.508" cy="30.599" fill="#7e14ff" rx="5.508" ry="30.599" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="matrix(.00324 1 1 -.00324 -34.34 30.47)"/></g><g filter="url(#g)"><ellipse cx="14.072" cy="22.078" fill="#ede6ff" rx="14.072" ry="22.078" style="fill:#ede6ff;fill:color(display-p3 .9275 .9033 1);fill-opacity:1" transform="rotate(93.35 24.506 48.493)scale(-1 1)"/></g><g filter="url(#h)"><ellipse cx="3.47" cy="21.501" fill="#7e14ff" rx="3.47" ry="21.501" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.009 28.708 47.59)scale(-1 1)"/></g><g filter="url(#i)"><ellipse cx="3.47" cy="21.501" fill="#7e14ff" rx="3.47" ry="21.501" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.009 28.708 47.59)scale(-1 1)"/></g><g filter="url(#j)"><ellipse cx=".387" cy="8.972" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(39.51 .387 8.972)"/></g><g filter="url(#k)"><ellipse cx="47.523" cy="-6.092" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 47.523 -6.092)"/></g><g filter="url(#l)"><ellipse cx="41.412" cy="6.333" fill="#47bfff" rx="5.971" ry="9.665" style="fill:#47bfff;fill:color(display-p3 .2799 .748 1);fill-opacity:1" transform="rotate(37.892 41.412 6.333)"/></g><g filter="url(#m)"><ellipse cx="-1.879" cy="38.332" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 -1.88 38.332)"/></g><g filter="url(#n)"><ellipse cx="-1.879" cy="38.332" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 -1.88 38.332)"/></g><g filter="url(#o)"><ellipse cx="35.651" cy="29.907" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 35.651 29.907)"/></g><g filter="url(#p)"><ellipse cx="38.418" cy="32.4" fill="#47bfff" rx="5.971" ry="15.297" style="fill:#47bfff;fill:color(display-p3 .2799 .748 1);fill-opacity:1" transform="rotate(37.892 38.418 32.4)"/></g></g><defs><filter id="b" width="60.045" height="41.654" x="-19.77" y="16.149" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659"/></filter><filter id="c" width="90.34" height="51.437" x="-54.613" y="-7.533" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659"/></filter><filter id="d" width="79.355" height="29.4" x="-49.64" y="2.03" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="e" width="79.579" height="29.4" x="-45.045" y="20.029" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="f" width="79.579" height="29.4" x="-43.513" y="21.178" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="g" width="74.749" height="58.852" x="15.756" y="-17.901" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659"/></filter><filter id="h" width="61.377" height="25.362" x="23.548" y="2.284" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="i" width="61.377" height="25.362" x="23.548" y="2.284" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="j" width="56.045" height="63.649" x="-27.636" y="-22.853" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="k" width="54.814" height="64.646" x="20.116" y="-38.415" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="l" width="33.541" height="35.313" x="24.641" y="-11.323" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="m" width="54.814" height="64.646" x="-29.286" y="6.009" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="n" width="54.814" height="64.646" x="-29.286" y="6.009" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="o" width="54.814" height="64.646" x="8.244" y="-2.416" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="p" width="39.409" height="43.623" x="18.713" y="10.588" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter></defs></svg>
+</file>
+
+<file path="public/icons.svg">
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="bluesky-icon" viewBox="0 0 16 17">
+    <g clip-path="url(#bluesky-clip)"><path fill="#08060d" d="M7.75 7.735c-.693-1.348-2.58-3.86-4.334-5.097-1.68-1.187-2.32-.981-2.74-.79C.188 2.065.1 2.812.1 3.251s.241 3.602.398 4.13c.52 1.744 2.367 2.333 4.07 2.145-2.495.37-4.71 1.278-1.805 4.512 3.196 3.309 4.38-.71 4.987-2.746.608 2.036 1.307 5.91 4.93 2.746 2.72-2.746.747-4.143-1.747-4.512 1.702.189 3.55-.4 4.07-2.145.156-.528.397-3.691.397-4.13s-.088-1.186-.575-1.406c-.42-.19-1.06-.395-2.741.79-1.755 1.24-3.64 3.752-4.334 5.099"/></g>
+    <defs><clipPath id="bluesky-clip"><path fill="#fff" d="M.1.85h15.3v15.3H.1z"/></clipPath></defs>
+  </symbol>
+  <symbol id="discord-icon" viewBox="0 0 20 19">
+    <path fill="#08060d" d="M16.224 3.768a14.5 14.5 0 0 0-3.67-1.153c-.158.286-.343.67-.47.976a13.5 13.5 0 0 0-4.067 0c-.128-.306-.317-.69-.476-.976A14.4 14.4 0 0 0 3.868 3.77C1.546 7.28.916 10.703 1.231 14.077a14.7 14.7 0 0 0 4.5 2.306q.545-.748.965-1.587a9.5 9.5 0 0 1-1.518-.74q.191-.14.372-.293c2.927 1.369 6.107 1.369 8.999 0q.183.152.372.294-.723.437-1.52.74.418.838.963 1.588a14.6 14.6 0 0 0 4.504-2.308c.37-3.911-.63-7.302-2.644-10.309m-9.13 8.234c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.894 0 1.614.82 1.599 1.82.001 1-.705 1.82-1.6 1.82m5.91 0c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.893 0 1.614.82 1.599 1.82 0 1-.706 1.82-1.6 1.82"/>
+  </symbol>
+  <symbol id="documentation-icon" viewBox="0 0 21 20">
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="m15.5 13.333 1.533 1.322c.645.555.967.833.967 1.178s-.322.623-.967 1.179L15.5 18.333m-3.333-5-1.534 1.322c-.644.555-.966.833-.966 1.178s.322.623.966 1.179l1.534 1.321"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M17.167 10.836v-4.32c0-1.41 0-2.117-.224-2.68-.359-.906-1.118-1.621-2.08-1.96-.599-.21-1.349-.21-2.848-.21-2.623 0-3.935 0-4.983.369-1.684.591-3.013 1.842-3.641 3.428C3 6.449 3 7.684 3 10.154v2.122c0 2.558 0 3.838.706 4.726q.306.383.713.671c.76.536 1.79.64 3.581.66"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M3 10a2.78 2.78 0 0 1 2.778-2.778c.555 0 1.209.097 1.748-.047.48-.129.854-.503.982-.982.145-.54.048-1.194.048-1.749a2.78 2.78 0 0 1 2.777-2.777"/>
+  </symbol>
+  <symbol id="github-icon" viewBox="0 0 19 19">
+    <path fill="#08060d" fill-rule="evenodd" d="M9.356 1.85C5.05 1.85 1.57 5.356 1.57 9.694a7.84 7.84 0 0 0 5.324 7.44c.387.079.528-.168.528-.376 0-.182-.013-.805-.013-1.454-2.165.467-2.616-.935-2.616-.935-.349-.91-.864-1.143-.864-1.143-.71-.48.051-.48.051-.48.787.051 1.2.805 1.2.805.695 1.194 1.817.857 2.268.649.064-.507.27-.857.49-1.052-1.728-.182-3.545-.857-3.545-3.87 0-.857.31-1.558.8-2.104-.078-.195-.349-1 .077-2.078 0 0 .657-.208 2.14.805a7.5 7.5 0 0 1 1.946-.26c.657 0 1.328.092 1.946.26 1.483-1.013 2.14-.805 2.14-.805.426 1.078.155 1.883.078 2.078.502.546.799 1.247.799 2.104 0 3.013-1.818 3.675-3.558 3.87.284.247.528.714.528 1.454 0 1.052-.012 1.896-.012 2.156 0 .208.142.455.528.377a7.84 7.84 0 0 0 5.324-7.441c.013-4.338-3.48-7.844-7.773-7.844" clip-rule="evenodd"/>
+  </symbol>
+  <symbol id="social-icon" viewBox="0 0 20 20">
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M12.5 6.667a4.167 4.167 0 1 0-8.334 0 4.167 4.167 0 0 0 8.334 0"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M2.5 16.667a5.833 5.833 0 0 1 8.75-5.053m3.837.474.513 1.035c.07.144.257.282.414.309l.93.155c.596.1.736.536.307.965l-.723.73a.64.64 0 0 0-.152.531l.207.903c.164.715-.213.991-.84.618l-.872-.52a.63.63 0 0 0-.577 0l-.872.52c-.624.373-1.003.094-.84-.618l.207-.903a.64.64 0 0 0-.152-.532l-.723-.729c-.426-.43-.289-.864.306-.964l.93-.156a.64.64 0 0 0 .412-.31l.513-1.034c.28-.562.735-.562 1.012 0"/>
+  </symbol>
+  <symbol id="x-icon" viewBox="0 0 19 19">
+    <path fill="#08060d" fill-rule="evenodd" d="M1.893 1.98c.052.072 1.245 1.769 2.653 3.77l2.892 4.114c.183.261.333.48.333.486s-.068.089-.152.183l-.522.593-.765.867-3.597 4.087c-.375.426-.734.834-.798.905a1 1 0 0 0-.118.148c0 .01.236.017.664.017h.663l.729-.83c.4-.457.796-.906.879-.999a692 692 0 0 0 1.794-2.038c.034-.037.301-.34.594-.675l.551-.624.345-.392a7 7 0 0 1 .34-.374c.006 0 .93 1.306 2.052 2.903l2.084 2.965.045.063h2.275c1.87 0 2.273-.003 2.266-.021-.008-.02-1.098-1.572-3.894-5.547-2.013-2.862-2.28-3.246-2.273-3.266.008-.019.282-.332 2.085-2.38l2-2.274 1.567-1.782c.022-.028-.016-.03-.65-.03h-.674l-.3.342a871 871 0 0 1-1.782 2.025c-.067.075-.405.458-.75.852a100 100 0 0 1-.803.91c-.148.172-.299.344-.99 1.127-.304.343-.32.358-.345.327-.015-.019-.904-1.282-1.976-2.808L6.365 1.85H1.8zm1.782.91 8.078 11.294c.772 1.08 1.413 1.973 1.425 1.984.016.017.241.02 1.05.017l1.03-.004-2.694-3.766L7.796 5.75 5.722 2.852l-1.039-.004-1.039-.004z" clip-rule="evenodd"/>
+  </symbol>
+</svg>
+</file>
+
+<file path="public/manifest.json">
+{
+  "name": "Touchê",
+  "short_name": "Touchê",
+  "description": "Costura y arreglos de precisión en Surco, Lima",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#c9a84c",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
+</file>
+
+<file path="public/robots.txt">
+User-agent: *
+Allow: /
+Sitemap: https://tu-dominio.com/sitemap.xml
+</file>
+
+<file path="public/sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tu-dominio.com/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+</file>
+
+<file path="README.md">
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+</file>
+
+<file path="src/App.jsx">
+import { useState } from 'react';
+import AnimatedBackground from './components/ui/AnimatedBackground';
+import ScrollReveal from './components/ui/ScrollReveal';
+import ErrorBoundary from './components/ErrorBoundary';
+import SplashScreen from './components/SplashScreen';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Philosophy from './components/Philosophy';
+import Services from './components/Services';
+import FAQ from './components/FAQ';
+import Reviews from './components/Reviews';
+import MapSection from './components/MapSection';
+import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
+import InstallBanner from './components/InstallBanner';
+
+export default function App() {
+  const [appReady, setAppReady] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(false);
+
+  return (
+    <>
+      <SplashScreen onComplete={() => setAppReady(true)} />
+
+      <div className="relative min-h-screen bg-dark text-white selection:bg-gold-500 selection:text-dark overflow-hidden">
+        <AnimatedBackground />
+        <div className="relative z-10 flex flex-col">
+          <Header />
+          <main className={`flex-1 ${bannerVisible ? 'pb-20' : ''}`}>
+            <Hero appReady={appReady} />
+
+            <ScrollReveal>
+              <Philosophy />
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <Services />
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <FAQ />
+            </ScrollReveal>
+
+            {/* Reviews has Firestore dependency — isolate failures */}
+            <ScrollReveal>
+              <ErrorBoundary>
+                <Reviews />
+              </ErrorBoundary>
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <MapSection />
+            </ScrollReveal>
+          </main>
+
+          <ScrollReveal>
+            <Footer />
+          </ScrollReveal>
+        </div>
+
+        <WhatsAppButton bottomOffset={bannerVisible ? 'bottom-24' : 'bottom-6'} />
+        <InstallBanner onVisibilityChange={setBannerVisible} />
+      </div>
+    </>
+  );
+}
+</file>
+
+<file path="src/components/ErrorBoundary.jsx">
+import { Component } from 'react';
+
+/**
+ * Catches JavaScript errors anywhere in the child component tree,
+ * logs them, and displays a fallback UI instead of crashing the whole app.
+ *
+ * Usage:
+ *   <ErrorBoundary fallback={<p>Algo salió mal.</p>}>
+ *     <MyComponent />
+ *   </ErrorBoundary>
+ */
+export default class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, info) {
+    // In production you'd send this to Sentry / LogRocket / etc.
+    console.error('[ErrorBoundary]', error, info.componentStack);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      if (this.props.fallback) return this.props.fallback;
+
+      return (
+        <div className="flex flex-col items-center justify-center py-20 px-6 text-center gap-4">
+          <p className="text-sm font-mono text-gold-500/60 tracking-widest uppercase">
+            Algo salió mal
+          </p>
+          <p className="text-white/40 text-sm max-w-sm leading-relaxed">
+            Esta sección no pudo cargarse. Recarga la página o contáctanos por WhatsApp.
+          </p>
+          <button
+            onClick={() => this.setState({ hasError: false, error: null })}
+            className="btn-ghost text-sm px-6 py-2"
+          >
+            Reintentar
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+</file>
+
+<file path="src/components/FAQ.jsx">
+// FAQ section — interactive accordion built on top of GlassCard
+import { useState } from 'react';
+import { Plus } from 'lucide-react';
+import { useI18n } from '../context/i18nContext';
+import GlassCard from './ui/GlassCard';
+import SectionWrapper from './ui/SectionWrapper';
+
+function FAQItem({ item, index, isOpen, onToggle }) {
+  const panelId = `faq-panel-${index}`;
+  const buttonId = `faq-button-${index}`;
+
+  return (
+    <GlassCard reveal revealDelay={index} className="overflow-hidden">
+      <button
+        id={buttonId}
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        className="w-full flex items-center justify-between gap-4 text-left px-6 py-5 group"
+      >
+        <span className="font-display text-base sm:text-lg text-white group-hover:text-gold-300 transition-colors duration-200">
+          {item.question}
+        </span>
+        <span
+          className={`flex-shrink-0 w-8 h-8 rounded-full border border-gold-500/25 flex items-center justify-center text-gold-400 transition-all duration-300 ${
+            isOpen ? 'rotate-45 bg-gold-500/10 border-gold-500/40' : ''
+          }`}
+        >
+          <Plus size={16} />
+        </span>
+      </button>
+
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        className="grid overflow-hidden transition-all duration-300 ease-out"
+        style={{ gridTemplateRows: isOpen ? '1fr' : '0fr', opacity: isOpen ? 1 : 0 }}
+      >
+        <div className="overflow-hidden">
+          <p className="px-6 pb-6 pt-4 text-sm text-white/55 leading-relaxed border-t border-white/[0.06]">
+            {item.answer}
+          </p>
+        </div>
+      </div>
+    </GlassCard>
+  );
+}
+
+export default function FAQ() {
+  const { t } = useI18n();
+  const { faq } = t;
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const handleToggle = (index) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
+  return (
+    <SectionWrapper id="faq">
+      <div className="text-center mb-16 flex flex-col items-center gap-4">
+        <p className="section-label">{faq.eyebrow}</p>
+        <h2 className="section-title">{faq.title}</h2>
+        <div className="flex items-center gap-3 mt-1">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/50" />
+        </div>
+        <p className="text-white/45 text-base max-w-xl leading-relaxed">{faq.subtitle}</p>
+      </div>
+
+      <div className="max-w-2xl mx-auto flex flex-col gap-4">
+        {faq.items.map((item, index) => (
+          <FAQItem
+            key={item.question}
+            item={item}
+            index={index}
+            isOpen={openIndex === index}
+            onToggle={() => handleToggle(index)}
+          />
+        ))}
+      </div>
+    </SectionWrapper>
+  );
+}
+</file>
+
+<file path="src/components/Footer.jsx">
+import { Phone, MapPin, Clock, Heart, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { useI18n } from '../context/i18nContext';
+
+const WHATSAPP_NUMBER = '51936797870';
+
+function FooterHeading({ children }) {
+  return (
+    <h4 className="text-xs font-mono tracking-[0.3em] uppercase text-gold-500/80 mb-5">
+      {children}
+    </h4>
+  );
+}
+
+function FooterLink({ href, children, external = false, onClick }) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className="text-sm text-white/40 hover:text-gold-400 transition-colors duration-200 leading-relaxed flex items-start gap-1.5"
+    >
+      {children}
+    </a>
+  );
+}
+
+export default function Footer() {
+  const { t } = useI18n();
+  const { footer } = t;
+  const currentYear = new Date().getFullYear();
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    t.whatsapp.defaultMessage
+  )}`;
+
+  const handleNavClick = (href) => {
+    const target = document.querySelector(href);
+    target?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <footer id="contact" className="relative z-10 border-t border-white/[0.06] mt-12">
+      <div className="h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent" />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          {/* Brand column */}
+          <div className="lg:col-span-1 flex flex-col gap-5">
+            <div>
+              <p className="font-display text-3xl font-semibold gold-text leading-none">Touchê</p>
+              <p className="text-[9px] font-mono tracking-[0.4em] uppercase text-white/25 mt-1 pl-0.5">Costura & Arreglos</p>
+            </div>
+            <p className="text-sm text-white/35 leading-relaxed max-w-xs italic font-light">
+              "{footer.tagline}"
+            </p>
+            <div className="flex items-center gap-3 pt-1">
+              <a
+                href="https://www.instagram.com/starjomi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Touchê"
+                className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-white/35 hover:text-gold-400 hover:border-gold-500/30 transition-all duration-200"
+              >
+                <Instagram size={15} strokeWidth={1.5} />
+              </a>
+              <a
+                href="https://www.facebook.com/JomiGarciaC"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de Touchê"
+                className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-white/35 hover:text-gold-400 hover:border-gold-500/30 transition-all duration-200"
+              >
+                <Facebook size={15} strokeWidth={1.5} />
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp de Touchê"
+                className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-white/35 hover:text-gold-400 hover:border-gold-500/30 transition-all duration-200"
+              >
+                <MessageCircle size={15} strokeWidth={1.5} />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div>
+            <FooterHeading>Enlaces</FooterHeading>
+            <nav className="flex flex-col gap-3">
+              <FooterLink href="#services" onClick={(e) => { e.preventDefault(); handleNavClick('#services'); }}>
+                {footer.links.services}
+              </FooterLink>
+              <FooterLink href="#reviews" onClick={(e) => { e.preventDefault(); handleNavClick('#reviews'); }}>
+                {footer.links.reviews}
+              </FooterLink>
+              <FooterLink href="#location" onClick={(e) => { e.preventDefault(); handleNavClick('#location'); }}>
+                {footer.links.location}
+              </FooterLink>
+              <FooterLink href={whatsappUrl} external>
+                {footer.whatsapp}
+              </FooterLink>
+            </nav>
+          </div>
+
+          {/* Contacto */}
+          <div>
+            <FooterHeading>{footer.contact}</FooterHeading>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-start gap-3">
+                <Phone size={14} className="text-gold-500/60 mt-0.5 flex-shrink-0" />
+                <a href={`tel:${WHATSAPP_NUMBER}`} className="text-sm text-white/40 hover:text-gold-400 transition-colors">
+                  {footer.phone}
+                </a>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin size={14} className="text-gold-500/60 mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-white/40 leading-relaxed">{footer.address}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Horarios */}
+          <div>
+            <FooterHeading>{t.location.schedule.title}</FooterHeading>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-start gap-3">
+                <Clock size={14} className="text-gold-500/60 mt-0.5 flex-shrink-0" />
+                <div className="flex flex-col gap-1.5">
+                  <p className="text-sm text-white/40 leading-relaxed">
+                    {t.location.schedule.weekdays}<br />
+                    <span className="text-gold-400/70 font-mono text-xs">{t.location.schedule.weekdaysHours}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/20 font-mono text-center sm:text-left">
+            © {currentYear} Touchê · {footer.owner} · {footer.rights}
+          </p>
+          <p className="text-xs text-white/15 font-mono flex items-center gap-1.5">
+            Hecho con <Heart size={10} className="text-gold-500/40 fill-gold-500/30" /> en Lima, Perú
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+</file>
+
+<file path="src/components/Gallery.jsx">
+import SectionWrapper from './ui/SectionWrapper';
+import GlassCard from './ui/GlassCard';
+import { useI18n } from '../context/i18nContext';
+
+const beforeAfterPairs = [
+  { id: 1, before: 'https://placehold.co/600x800/111/C9A84C?text=Antes', after: 'https://placehold.co/600x800/111/C9A84C?text=Después' },
+  { id: 2, before: 'https://placehold.co/600x800/111/C9A84C?text=Antes', after: 'https://placehold.co/600x800/111/C9A84C?text=Después' },
+  { id: 3, before: 'https://placehold.co/600x800/111/C9A84C?text=Antes', after: 'https://placehold.co/600x800/111/C9A84C?text=Después' },
+  { id: 4, before: 'https://placehold.co/600x800/111/C9A84C?text=Antes', after: 'https://placehold.co/600x800/111/C9A84C?text=Después' },
+  { id: 5, before: 'https://placehold.co/600x800/111/C9A84C?text=Antes', after: 'https://placehold.co/600x800/111/C9A84C?text=Después' },
+  { id: 6, before: 'https://placehold.co/600x800/111/C9A84C?text=Antes', after: 'https://placehold.co/600x800/111/C9A84C?text=Después' },
+];
+
+function GalleryItem({ item, index }) {
+  return (
+    <GlassCard
+      reveal
+      revealDelay={index}
+      hover
+      className="overflow-hidden group"
+    >
+      <div className="grid grid-cols-2 gap-0">
+        <div className="relative aspect-[3/4] overflow-hidden">
+          <img
+            src={item.before}
+            alt="Antes del arreglo"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-mono text-gold-400">
+            ANTES
+          </div>
+        </div>
+        <div className="relative aspect-[3/4] overflow-hidden">
+          <img
+            src={item.after}
+            alt="Después del arreglo"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-mono text-gold-400">
+            DESPUÉS
+          </div>
+        </div>
+      </div>
+    </GlassCard>
+  );
+}
+
+export default function Gallery() {
+  const { t } = useI18n();
+
+  return (
+    <SectionWrapper id="gallery">
+      <div className="text-center mb-16 flex flex-col items-center gap-4">
+        <p className="section-label">Antes & Después</p>
+        <h2 className="section-title">Nuestro trabajo</h2>
+        <div className="flex items-center gap-3 mt-1">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/50" />
+        </div>
+        <p className="text-white/45 text-base max-w-xl leading-relaxed">
+          Transformaciones reales que hablan por sí mismas.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {beforeAfterPairs.map((item, idx) => (
+          <GalleryItem key={item.id} item={item} index={idx} />
+        ))}
+      </div>
+    </SectionWrapper>
+  );
+}
+</file>
+
+<file path="src/components/Header.jsx">
+import { useState, useEffect } from 'react';
+import { Menu, X, LogIn, LogOut, Loader2, AlertCircle } from 'lucide-react';
+import { useI18n } from '../context/i18nContext';
+import { useAuth } from '../context/AuthContext';
+
+function LangToggle() {
+  const { language, toggleLanguage, t } = useI18n();
+  return (
+    <button
+      onClick={toggleLanguage}
+      aria-label={`Switch to ${language === 'es' ? 'English' : 'Español'}`}
+      className="relative flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-gold-500/30 text-xs font-mono tracking-widest text-gold-400 hover:text-gold-300 hover:border-gold-400/60 transition-all duration-300 hover:bg-gold-500/5"
+    >
+      <span className="text-white/40">{language.toUpperCase()}</span>
+      <span className="text-white/20">·</span>
+      <span>{t.nav.langToggle}</span>
+    </button>
+  );
+}
+
+function AuthButton({ isMobile = false }) {
+  const { user, loading, authError, signInWithGoogle, signOut } = useAuth();
+  const { t } = useI18n();
+  const [busy, setBusy] = useState(false);
+
+  const handleAction = async () => {
+    setBusy(true);
+    try {
+      if (user) await signOut();
+      else await signInWithGoogle();
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const baseClasses = isMobile
+    ? 'flex items-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200'
+    : 'flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300';
+
+  if (loading) {
+    return (
+      <div className={`${baseClasses} text-white/40`}>
+        <Loader2 size={15} className="animate-spin" />
+      </div>
+    );
+  }
+
+  if (user) {
+    return (
+      <button
+        onClick={handleAction}
+        disabled={busy}
+        className={`${baseClasses} border border-white/10 text-white/60 hover:text-white hover:border-white/20 hover:bg-white/5`}
+      >
+        {busy ? <Loader2 size={15} className="animate-spin" /> : <LogOut size={15} />}
+        {isMobile && <span>{t.nav.signOut}</span>}
+      </button>
+    );
+  }
+
+  return (
+    <div className="flex flex-col items-end gap-1">
+      <button
+        onClick={handleAction}
+        disabled={busy}
+        className={`${baseClasses} btn-gold text-xs tracking-wide`}
+      >
+        {busy ? <Loader2 size={14} className="animate-spin" /> : <LogIn size={14} />}
+        <span>{t.nav.signIn}</span>
+      </button>
+      {authError && (
+        <p className="flex items-center gap-1 text-[10px] text-red-400 max-w-[200px] text-right leading-snug">
+          <AlertCircle size={10} className="flex-shrink-0" />
+          {authError}
+        </p>
+      )}
+    </div>
+  );
+}
+
+export default function Header() {
+  const { t } = useI18n();
+  const { user } = useAuth();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleKey = (e) => e.key === 'Escape' && setMenuOpen(false);
+    document.addEventListener('keydown', handleKey);
+    return () => document.removeEventListener('keydown', handleKey);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  const navLinks = [
+    { label: t.nav.philosophy, href: '#philosophy' },
+    { label: t.nav.services,   href: '#services'   },
+    { label: t.nav.reviews,    href: '#reviews'    },
+    { label: t.nav.faq,        href: '#faq'        },
+    { label: t.nav.location,   href: '#location'   },
+  ];
+
+  const handleNavClick = (href) => {
+    setMenuOpen(false);
+    const target = document.querySelector(href);
+    target?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        scrolled
+          ? 'bg-dark/90 backdrop-blur-lg border-b border-white/[0.06] py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
+          : 'bg-transparent py-5'
+      }`}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="flex flex-col leading-none group"
+              aria-label="Touchê — inicio"
+            >
+              <span className="font-display text-2xl font-semibold tracking-tight gold-text group-hover:opacity-90 transition-opacity duration-300">
+                Touchê
+              </span>
+            </a>
+
+            <nav className="hidden md:flex items-center gap-4 lg:gap-8" aria-label="Primary navigation">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  className="relative text-[13px] lg:text-sm font-body text-white/60 hover:text-white transition-colors duration-200 py-1 whitespace-nowrap after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="hidden md:flex items-center gap-3">
+              <LangToggle />
+              <AuthButton />
+              {user?.photoURL && (
+                <img
+                  src={user.photoURL}
+                  alt={user.displayName ?? 'User avatar'}
+                  className="w-8 h-8 rounded-full border border-gold-500/40 object-cover"
+                />
+              )}
+            </div>
+
+            <div className="flex md:hidden items-center gap-3">
+              <LangToggle />
+              <button
+                onClick={() => setMenuOpen((o) => !o)}
+                aria-expanded={menuOpen}
+                aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                className="p-2 rounded-lg border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition-colors duration-200"
+              >
+                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div
+        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${menuOpen ? 'visible' : 'invisible'}`}
+        aria-hidden={!menuOpen}
+      >
+        <div
+          className={`absolute inset-0 bg-dark/80 backdrop-blur-sm transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setMenuOpen(false)}
+        />
+        <div className={`absolute top-0 right-0 h-full w-72 bg-dark-100/95 backdrop-blur-xl border-l border-white/[0.08] flex flex-col pt-24 pb-10 px-6 transition-transform duration-300 ease-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <nav className="flex flex-col gap-1 mb-8" aria-label="Mobile navigation">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                className="flex items-center px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200 font-body text-base border border-transparent hover:border-white/[0.08]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="border-t border-white/[0.06] pt-6">
+            {user && (
+              <div className="flex items-center gap-3 px-4 py-3 mb-4 glass-card">
+                {user.photoURL && (
+                  <img
+                    src={user.photoURL}
+                    alt={user.displayName ?? ''}
+                    className="w-9 h-9 rounded-full border border-gold-500/40 object-cover flex-shrink-0"
+                  />
+                )}
+                <div className="min-w-0">
+                  <p className="text-sm font-medium text-white truncate">{user.displayName}</p>
+                  <p className="text-xs text-white/40 truncate">{user.email}</p>
+                </div>
+              </div>
+            )}
+            <AuthButton isMobile />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+</file>
+
+<file path="src/components/Hero.jsx">
+import { useMemo, useEffect, useState } from 'react';
+import { useI18n } from '../context/i18nContext';
+import { useAuth } from '../context/AuthContext';
+import { useTypewriter } from '../hooks/useTypewriter';
+import { ArrowDown, Scissors } from 'lucide-react';
+
+export default function Hero({ appReady = true }) {
+  const { t } = useI18n();
+  const { user } = useAuth();
+  const [isShortHeight, setIsShortHeight] = useState(false);
+
+  useEffect(() => {
+    const checkHeight = () => setIsShortHeight(window.innerHeight < 820);
+    checkHeight();
+    window.addEventListener('resize', checkHeight);
+    return () => window.removeEventListener('resize', checkHeight);
+  }, []);
+
+  // Derive greeting directly — no intermediate empty-string state
+  const greetingText = useMemo(() => {
+    if (user?.displayName) {
+      const firstName = user.displayName.split(' ')[0];
+      return t.hero.greetingLoggedIn.replace('{name}', firstName);
+    }
+    return t.hero.greetingLoggedOut;
+  }, [user, t]);
+
+  const { displayed, isDone } = useTypewriter(greetingText, 50, 200, appReady);
+
+  const handleScrollToServices = () => {
+    document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const whatsappUrl = `https://wa.me/51936797870?text=${encodeURIComponent(
+    t.whatsapp.defaultMessage
+  )}`;
+
+  const reveal = (delayClass = '') =>
+    appReady ? `fade-in-up ${delayClass}`.trim() : 'opacity-0';
+
+  return (
+    <section
+      id="home"
+      className={`relative flex flex-col h-[100svh] pt-[100px] md:pt-[90px] px-4 sm:px-6 lg:px-8 overflow-hidden ${
+        isShortHeight ? 'justify-start' : 'justify-center'
+      }`}
+      aria-label="Hero section"
+    >
+      <div className={`flex-1 flex items-center justify-center ${!isShortHeight ? 'my-auto' : ''}`}>
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <div className={`inline-flex items-center gap-2.5 mb-6 ${reveal()}`}>
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-gold-500/60" />
+            <span className="text-xs font-mono tracking-[0.3em] uppercase text-gold-500">
+              {t.hero.eyebrow}
+            </span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-gold-500/60" />
+          </div>
+
+          <h1 className={`font-display font-semibold leading-[1.1] text-white mb-6 min-h-[6rem] text-4xl sm:text-5xl lg:text-6xl ${reveal('fade-in-up-delay-1')}`}>
+            {displayed}
+            {appReady && !isDone && <span className="typewriter-cursor"></span>}
+          </h1>
+
+          <p className={`hero-description max-w-2xl mx-auto text-base sm:text-lg text-white/60 leading-relaxed mb-10 ${reveal('fade-in-up-delay-2')}`}>
+            {t.hero.subtitle}
+          </p>
+
+          <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${reveal('fade-in-up-delay-3')}`}>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold flex items-center gap-2 px-8 py-4 text-base font-semibold"
+            >
+              <Scissors size={18} />
+              {t.hero.ctaBook}
+            </a>
+            <button onClick={handleScrollToServices} className="btn-ghost px-8 py-4 text-base">
+              {t.hero.ctaServices}
+            </button>
+          </div>
+
+          <div className={`mt-12 flex items-center justify-center gap-2 ${reveal('fade-in-up-delay-4')}`}>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+            <span className="text-xs font-mono tracking-widest text-white/40 uppercase">
+              {t.hero.badge}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-auto pt-8 pb-6">
+        <button
+          onClick={handleScrollToServices}
+          aria-label="Scroll to services"
+          className="flex flex-col items-center gap-1.5 text-white/25 hover:text-white/50 transition-colors duration-300 group mx-auto"
+        >
+          <span className="text-[9px] font-mono tracking-[0.3em] uppercase">scroll</span>
+          <ArrowDown size={16} className="animate-bounce group-hover:text-gold-500 transition-colors" />
+        </button>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/InstallBanner.jsx">
+import { useState, useEffect } from 'react';
+import { Download, X } from 'lucide-react';
+import { usePWAInstall } from '../hooks/usePWAInstall';
+import { useI18n } from '../context/i18nContext';
+
+export default function InstallBanner({ onVisibilityChange }) {
+  const { isInstallable, isInstalled, promptInstall } = usePWAInstall();
+  const [dismissed, setDismissed] = useState(false);
+  const { t } = useI18n();
+
+  const isVisible = isInstallable && !isInstalled && !dismissed;
+
+  // Notificar al padre (App.jsx) cuando la visibilidad cambie
+  useEffect(() => {
+    onVisibilityChange?.(isVisible);
+  }, [isVisible, onVisibilityChange]);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="
+      fixed z-50 fade-in-up
+      top-20 left-4 right-4
+      lg:top-auto lg:bottom-6 lg:left-1/2 lg:right-auto lg:-translate-x-1/2
+      lg:w-auto lg:max-w-md
+    ">
+      <div className="bg-black/90 backdrop-blur-sm border border-gold-500/30 rounded-2xl flex items-center gap-4 px-5 py-4 shadow-[0_8px_40px_rgba(0,0,0,0.5)]">
+        <div className="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/30 flex items-center justify-center flex-shrink-0">
+          <Download size={18} className="text-gold-400" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold text-white">{t.pwa.installTitle}</p>
+          <p className="text-xs text-white/70 leading-snug">{t.pwa.installDescription}</p>
+        </div>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <button onClick={promptInstall} className="btn-gold text-xs px-4 py-2">
+            {t.pwa.install}
+          </button>
+          <button
+            onClick={() => setDismissed(true)}
+            aria-label={t.pwa.dismiss}
+            className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/10 transition-colors duration-200"
+          >
+            <X size={14} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/MapSection.jsx">
+import { MapPin, Clock, ExternalLink, Navigation } from 'lucide-react';
+import { useI18n } from '../context/i18nContext';
+import GlassCard from './ui/GlassCard';
+import SectionWrapper from './ui/SectionWrapper';
+
+const MAPS_EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.1751220190376!2d-76.99261162388208!3d-12.168477844181005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b83432cba917%3A0x9c4644ac8372957a!2sC.%20Pierre%20Sim%C3%B3n%20Laplace%2C%20Santiago%20de%20Surco!5e0!3m2!1ses-419!2spe!4v1781484432777!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"';
+
+const MAPS_DIRECTIONS_URL = 'https://www.google.com/maps/dir/?api=1&destination=Calle+Pierre+Simón+Laplace+MZ+H+lote+5,+Surco';
+
+const MAPS_PLACE_URL = 'https://www.google.com/maps/search/?api=1&query=Calle+Pierre+Simón+Laplace+MZ+H+lote+5,+Surco';
+
+function ScheduleRow({ day, hours, closed = false }) {
+  return (
+    <div className="flex items-center justify-between py-2.5 border-b border-white/[0.05] last:border-0">
+      <span className="text-sm text-white/55 font-body">{day}</span>
+      <span className={`text-sm font-mono ${closed ? 'text-white/25' : 'text-gold-400'}`}>
+        {hours}
+      </span>
+    </div>
+  );
+}
+
+function MapEmbed() {
+  return (
+    <div className="relative w-full overflow-hidden rounded-2xl border border-white/[0.08] shadow-xl aspect-[4/3] md:aspect-[16/9] lg:aspect-[4/3]">
+      <div
+        className="absolute inset-0 z-10 pointer-events-none rounded-2xl"
+        style={{
+          background: 'linear-gradient(135deg, rgba(10,10,10,0.2) 0%, transparent 60%)',
+        }}
+      />
+      <iframe
+        src={MAPS_EMBED_URL}
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Ubicación de Touchê"
+        className="w-full h-full"
+      />
+    </div>
+  );
+}
+
+export default function MapSection() {
+  const { t } = useI18n();
+  const { location } = t;
+
+  return (
+    <SectionWrapper id="location">
+      <div className="text-center mb-16 flex flex-col items-center gap-4">
+        <p className="section-label">{location.eyebrow}</p>
+        <h2 className="section-title">{location.title}</h2>
+        <div className="flex items-center gap-3 mt-1">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/50" />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+        <div className="lg:col-span-2 flex flex-col gap-5">
+          <GlassCard reveal className="p-6 flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center">
+                <MapPin size={17} className="text-gold-400" />
+              </div>
+              <div>
+                <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-gold-500/70 mb-0.5">
+                  {location.eyebrow}
+                </p>
+                <p className="text-sm font-medium text-white leading-snug">{location.address}</p>
+              </div>
+            </div>
+            <p className="text-xs text-white/40 pl-12 font-mono">{location.city}</p>
+          </GlassCard>
+
+          <GlassCard reveal revealDelay={1} className="p-6 flex flex-col gap-4">
+            <div className="flex items-center gap-3 mb-1">
+              <div className="w-9 h-9 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center">
+                <Clock size={17} className="text-gold-400" />
+              </div>
+              <p className="text-sm font-semibold text-white">{location.schedule.title}</p>
+            </div>
+            <div className="flex flex-col">
+              <ScheduleRow day={location.schedule.weekdays} hours={location.schedule.weekdaysHours} />
+              <ScheduleRow day={location.schedule.saturday} hours={location.schedule.saturdayHours} />
+              <ScheduleRow day={location.schedule.sunday} hours={location.schedule.sundayHours} />
+            </div>
+          </GlassCard>
+
+          <GlassCard reveal revealDelay={2} className="p-5 flex flex-col gap-3">
+            <a
+              href={MAPS_PLACE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold flex items-center justify-center gap-2 w-full text-sm py-3"
+            >
+              <ExternalLink size={15} />
+              {location.openMaps}
+            </a>
+            <a
+              href={MAPS_DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost flex items-center justify-center gap-2 w-full text-sm py-3"
+            >
+              <Navigation size={15} />
+              {location.getDirections}
+            </a>
+          </GlassCard>
+        </div>
+
+        <div className="lg:col-span-3">
+          <GlassCard reveal revealDelay={1} className="p-3">
+            <MapEmbed />
+            <div className="flex items-center gap-2 px-3 pt-3 pb-1">
+              <MapPin size={12} className="text-gold-500/60 flex-shrink-0" />
+              <p className="text-xs text-white/35 font-mono truncate">
+                {location.address} · {location.city}
+              </p>
+            </div>
+          </GlassCard>
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+}
+</file>
+
+<file path="src/components/Philosophy.jsx">
+// Philosophy & Process section — sits right below the Hero.
+// Communicates the brand's care philosophy and a simple 3-step process.
+import { Ruler, Scissors, CheckCircle2 } from 'lucide-react';
+import { useI18n } from '../context/i18nContext';
+import GlassCard from './ui/GlassCard';
+import SectionWrapper from './ui/SectionWrapper';
+
+const ICON_MAP = {
+  ruler: Ruler,
+  scissors: Scissors,
+  check: CheckCircle2,
+};
+
+function ProcessStep({ step, index, isLast }) {
+  const Icon = ICON_MAP[step.icon] ?? Ruler;
+
+  return (
+    <div className="relative flex flex-col items-center text-center gap-4 flex-1">
+      {/* Connector line between steps (desktop only) */}
+      {!isLast && (
+        <span
+          className="hidden md:block absolute top-7 left-[calc(50%+2.75rem)] right-[calc(-50%+2.75rem)] h-px bg-gradient-to-r from-gold-500/25 to-transparent"
+          aria-hidden="true"
+        />
+      )}
+
+      <div className="relative z-10 w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center">
+        <Icon size={26} className="text-gold-400" strokeWidth={1.5} />
+        <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-dark border border-gold-500/30 flex items-center justify-center text-[11px] font-mono text-gold-400">
+          {index + 1}
+        </span>
+      </div>
+
+      <h3 className="font-display text-lg font-semibold text-white">{step.name}</h3>
+      <p className="text-sm text-white/50 leading-relaxed max-w-[230px]">{step.description}</p>
+    </div>
+  );
+}
+
+export default function Philosophy() {
+  const { t } = useI18n();
+  const { philosophy } = t;
+
+  return (
+    <SectionWrapper id="philosophy">
+      {/* Filosofía */}
+      <div className="text-center mb-16 flex flex-col items-center gap-6 max-w-3xl mx-auto">
+        <p className="section-label">{philosophy.eyebrow}</p>
+        <h2 className="section-title">{philosophy.title}</h2>
+        <div className="flex items-center gap-3 mt-1">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/50" />
+        </div>
+        <p className="font-display italic text-xl sm:text-2xl text-white/70 leading-relaxed">
+          “{philosophy.text}”
+        </p>
+      </div>
+
+      {/* El Proceso */}
+      <GlassCard reveal className="p-8 sm:p-10">
+        <h3 className="text-center text-xs font-mono tracking-[0.3em] uppercase text-gold-500/80 mb-10">
+          {philosophy.process.title}
+        </h3>
+        <div className="flex flex-col md:flex-row items-stretch justify-between gap-12 md:gap-4">
+          {philosophy.process.steps.map((step, index) => (
+            <ProcessStep
+              key={step.id}
+              step={step}
+              index={index}
+              isLast={index === philosophy.process.steps.length - 1}
+            />
+          ))}
+        </div>
+      </GlassCard>
+    </SectionWrapper>
+  );
+}
+</file>
+
+<file path="src/components/Reviews.jsx">
+import { useState, useEffect, useCallback } from 'react';
+import {
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  where,
+  getDocs,
+  onSnapshot,
+  serverTimestamp,
+} from 'firebase/firestore';
+import { LogIn, Quote, Loader2, PenLine, X, Send } from 'lucide-react';
+import { db } from '../lib/firebase';
+import { useAuth } from '../context/AuthContext';
+import { useI18n } from '../context/i18nContext';
+import GlassCard from './ui/GlassCard';
+import SectionWrapper from './ui/SectionWrapper';
+import StarRating from './ui/StarRating';
+
+const SEED_REVIEWS = [
+  {
+    id: 'seed-1',
+    authorName: 'María Fernanda R.',
+    rating: 5,
+    text: 'Johanny es una artista. Llevé un vestido de noche con el cierre roto y lo devolvió perfecto. ¡Ni se nota! Precios muy justos.',
+    avatarUrl: null,
+    createdAt: null,
+  },
+  {
+    id: 'seed-2',
+    authorName: 'Claudia T.',
+    rating: 5,
+    text: 'Me hizo un vestido de gala a medida para mi graduación. La calidad es increíble, quedó como de revista. 100% recomendada.',
+    avatarUrl: null,
+    createdAt: null,
+  },
+  {
+    id: 'seed-3',
+    authorName: 'Luciana M.',
+    rating: 5,
+    text: 'Llevé varios pantalones para acortar y quedaron perfectos. Atención muy cálida y entrega puntual. Definitivamente mi modista de cabecera.',
+    avatarUrl: null,
+    createdAt: null,
+  },
+];
+
+function ReviewCard({ review, index }) {
+  const { t } = useI18n();
+
+  const initials = review.authorName
+    ? review.authorName
+        .split(' ')
+        .map((n) => n[0])
+        .slice(0, 2)
+        .join('')
+        .toUpperCase()
+    : '?';
+
+  return (
+    <GlassCard
+      reveal
+      revealDelay={index}
+      className="p-7 flex flex-col gap-5 relative overflow-hidden"
+    >
+      <Quote
+        size={48}
+        className="absolute top-4 right-5 text-gold-500/6 rotate-180"
+        strokeWidth={1}
+        aria-hidden="true"
+      />
+      <StarRating value={review.rating} size={14} />
+      <p className="text-white/65 text-sm leading-relaxed flex-1 italic">
+        "{review.text}"
+      </p>
+      <div className="flex items-center gap-3 pt-3 border-t border-white/[0.06]">
+        {review.avatarUrl ? (
+          <img
+            src={review.avatarUrl}
+            alt={review.authorName}
+            className="w-9 h-9 rounded-full object-cover border border-gold-500/30 flex-shrink-0"
+          />
+        ) : (
+          <div className="w-9 h-9 rounded-full bg-gold-500/15 border border-gold-500/20 flex items-center justify-center flex-shrink-0">
+            <span className="text-xs font-semibold text-gold-400">{initials}</span>
+          </div>
+        )}
+        <div className="min-w-0">
+          <p className="text-sm font-medium text-white truncate">{review.authorName}</p>
+          <p className="text-[10px] font-mono text-gold-500/60 tracking-widest uppercase">
+            {t.reviews.verifiedCustomer}
+          </p>
+        </div>
+      </div>
+    </GlassCard>
+  );
+}
+
+function ReviewForm({ onClose, onSuccess }) {
+  const { t } = useI18n();
+  const { user } = useAuth();
+  const [rating, setRating] = useState(5);
+  const [text, setText] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async () => {
+    if (!text.trim() || rating === 0) return;
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      // Verificar si el usuario ya dejó una reseña
+      const existing = await getDocs(
+        query(collection(db, 'reviews'), where('uid', '==', user.uid))
+      );
+      if (!existing.empty) {
+        setError(t.reviews.alreadyReviewed);
+        setSubmitting(false);
+        return;
+      }
+
+      await addDoc(collection(db, 'reviews'), {
+        authorName: user.displayName ?? 'Anonymous',
+        avatarUrl: user.photoURL ?? null,
+        uid: user.uid,
+        rating,
+        text: text.trim(),
+        createdAt: serverTimestamp(),
+      });
+      onSuccess();
+      onClose();
+    } catch (err) {
+      console.error('Error submitting review:', err);
+      setError(t.reviews.submitError);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <GlassCard className="p-7 flex flex-col gap-5 border-gold-500/20">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          <PenLine size={16} className="text-gold-400" />
+          <span className="text-sm font-semibold text-white">
+            {t.reviews.leaveReview}
+          </span>
+        </div>
+        <button
+          onClick={onClose}
+          className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/5 transition-colors duration-200"
+          aria-label="Close form"
+        >
+          <X size={16} />
+        </button>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <p className="text-xs font-mono tracking-widest text-white/40 uppercase">
+          {t.reviews.ratingLabel}
+        </p>
+        <StarRating value={rating} onChange={setRating} size={24} />
+      </div>
+
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder={t.reviews.reviewPlaceholder}
+        rows={4}
+        maxLength={400}
+        className="
+          w-full bg-white/5 border border-white/10 rounded-xl
+          px-4 py-3 text-sm text-white placeholder:text-white/25
+          focus:outline-none focus:border-gold-500/40 focus:bg-white/8
+          resize-none transition-all duration-200 leading-relaxed
+        "
+      />
+
+      <p className="text-[11px] text-white/25 text-right -mt-3">
+        {text.length}/400
+      </p>
+
+      {error && (
+        <p className="text-xs text-red-400 bg-red-500/10 px-3 py-2 rounded-lg border border-red-500/20">
+          {error}
+        </p>
+      )}
+
+      <div className="flex gap-3">
+        <button onClick={onClose} className="flex-1 btn-ghost py-2.5 text-sm">
+          {t.reviews.cancel}
+        </button>
+        <button
+          onClick={handleSubmit}
+          disabled={submitting || !text.trim()}
+          className="
+            flex-1 btn-gold py-2.5 text-sm
+            flex items-center justify-center gap-2
+            disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100
+          "
+        >
+          {submitting ? (
+            <Loader2 size={14} className="animate-spin" />
+          ) : (
+            <Send size={14} />
+          )}
+          {t.reviews.submitReview}
+        </button>
+      </div>
+    </GlassCard>
+  );
+}
+
+function LoginPromptCard() {
+  const { t } = useI18n();
+  const { signInWithGoogle } = useAuth();
+
+  return (
+    <GlassCard className="p-7 flex flex-col items-center gap-4 text-center border-gold-500/15">
+      <div className="w-12 h-12 rounded-full bg-gold-500/10 border border-gold-500/20 flex items-center justify-center">
+        <LogIn size={20} className="text-gold-400" />
+      </div>
+      <p className="text-white/60 text-sm max-w-xs leading-relaxed">
+        {t.reviews.loginPrompt}
+      </p>
+      <button
+        onClick={signInWithGoogle}
+        className="btn-gold text-xs flex items-center gap-2 px-6 py-2.5"
+      >
+        {t.reviews.loginCta}
+      </button>
+    </GlassCard>
+  );
+}
+
+export default function Reviews() {
+  const { t } = useI18n();
+  const { user } = useAuth();
+
+  const [reviews, setReviews] = useState([]);
+  const [loadingReviews, setLoadingReviews] = useState(true);
+  const [firestoreError, setFirestoreError] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [successMsg, setSuccessMsg] = useState(false);
+
+  useEffect(() => {
+    const q = query(collection(db, 'reviews'), orderBy('createdAt', 'desc'));
+
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        const fetched = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setReviews(fetched);
+        setFirestoreError(false);
+        setLoadingReviews(false);
+      },
+      (err) => {
+        console.error('Firestore listener error:', err);
+        setFirestoreError(true);
+        setLoadingReviews(false);
+      }
+    );
+
+    return unsubscribe;
+  }, []);
+
+  const handleSuccess = useCallback(() => {
+    setSuccessMsg(true);
+    setTimeout(() => setSuccessMsg(false), 4000);
+  }, []);
+
+  const displayedReviews = reviews.length > 0 ? reviews : SEED_REVIEWS;
+
+  return (
+    <SectionWrapper id="reviews" className="bg-white/[0.01]">
+      <div className="text-center mb-16 flex flex-col items-center gap-4">
+        <p className="section-label">{t.reviews.eyebrow}</p>
+        <h2 className="section-title">{t.reviews.title}</h2>
+        <div className="flex items-center gap-3 mt-1">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/50" />
+        </div>
+        <p className="text-white/45 text-base max-w-xl leading-relaxed">
+          {t.reviews.subtitle}
+        </p>
+      </div>
+
+      {successMsg && (
+        <div
+          className="mb-8 mx-auto max-w-sm flex items-center gap-3 px-5 py-3.5 rounded-xl bg-green-500/10 border border-green-500/25 text-green-400 text-sm font-medium"
+          role="status"
+          aria-live="polite"
+        >
+          <span>✓</span>
+          {t.reviews.thankYou}
+        </div>
+      )}
+
+      {/* Firestore error notice — shown above seed reviews */}
+      {firestoreError && (
+        <p className="text-center text-xs text-white/25 font-mono mb-6" role="alert">
+          {t.reviews.loadError}
+        </p>
+      )}
+
+      {loadingReviews ? (
+        <div className="flex justify-center py-16">
+          <div className="flex flex-col items-center gap-3 text-white/30">
+            <Loader2 size={28} className="animate-spin text-gold-500/50" />
+            <p className="text-sm font-mono tracking-widest uppercase text-xs">
+              {t.reviews.loadingReviews}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          {displayedReviews.map((review, index) => (
+            <ReviewCard key={review.id} review={review} index={index} />
+          ))}
+        </div>
+      )}
+
+      <div className="max-w-lg mx-auto">
+        {user ? (
+          showForm ? (
+            <ReviewForm onClose={() => setShowForm(false)} onSuccess={handleSuccess} />
+          ) : (
+            <div className="text-center">
+              <button
+                onClick={() => setShowForm(true)}
+                className="btn-gold flex items-center gap-2 mx-auto"
+              >
+                <PenLine size={15} />
+                {t.reviews.leaveReview}
+              </button>
+            </div>
+          )
+        ) : (
+          <LoginPromptCard />
+        )}
+      </div>
+    </SectionWrapper>
+  );
+}
+</file>
+
+<file path="src/components/Services.jsx">
+import { Scissors, Heart, Sparkles } from 'lucide-react';
+import { useI18n } from '../context/i18nContext';
+import GlassCard from './ui/GlassCard';
+import SectionWrapper from './ui/SectionWrapper';
+
+const ICON_MAP = {
+  scissors: Scissors,
+  heart: Heart,
+  sparkles: Sparkles,
+};
+
+function ServiceCard({ service, index }) {
+  const Icon = ICON_MAP[service.icon] ?? Scissors;
+
+  return (
+    <GlassCard
+      hover
+      reveal
+      revealDelay={index}
+      className="service-card group p-6 flex flex-col gap-4 transition-all duration-500 overflow-hidden"
+    >
+      <div className="flex flex-col items-center text-center gap-4">
+        <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center group-hover:bg-gold-500/20 group-hover:border-gold-500/40 transition-all">
+          <Icon size={24} className="text-gold-400 group-hover:text-gold-300" strokeWidth={1.5} />
+        </div>
+        <h3 className="font-display text-xl font-semibold text-white">{service.name}</h3>
+      </div>
+
+      {/* Hidden description revealed on hover */}
+      <div className="service-description overflow-hidden transition-all duration-500 ease-out max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-2">
+        <p className="text-sm text-white/60 leading-relaxed text-center">{service.description}</p>
+        <div className="pt-3 text-center">
+          <span className="text-[10px] font-mono tracking-widest text-gold-500/70 uppercase border-t border-white/10 pt-2 inline-block">
+            {service.tagline}
+          </span>
+        </div>
+      </div>
+    </GlassCard>
+  );
+}
+
+export default function Services() {
+  const { t } = useI18n();
+  const services = t.services.items;
+
+  return (
+    <SectionWrapper id="services">
+      <div className="text-center mb-16 flex flex-col items-center gap-4">
+        <p className="section-label">{t.services.eyebrow}</p>
+        <h2 className="section-title">{t.services.title}</h2>
+        <div className="flex items-center gap-3 mt-1">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/50" />
+        </div>
+        <p className="text-white/45 text-base max-w-xl leading-relaxed">
+          {t.services.subtitle}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, index) => (
+          <ServiceCard key={service.id} service={service} index={index} />
+        ))}
+      </div>
+    </SectionWrapper>
+  );
+}
+</file>
+
+<file path="src/components/SplashScreen.jsx">
+// Full-screen splash shown briefly on first load — gives the PWA a native
+// "app opening" feel before revealing the site.
+import { useState, useEffect, useRef } from 'react';
+
+const DISPLAY_MS = 1500; // time fully visible before the exit begins
+const FADE_MS = 800; // exit (dissolve) transition duration
+
+/**
+ * @param {object}   props
+ * @param {function} [props.onComplete] - Called once, the moment the exit
+ *   transition begins. Use it to flip an "appReady" flag so the rest of the
+ *   page's entrance animations start as the splash dissolves — never before.
+ */
+export default function SplashScreen({ onComplete }) {
+  const [phase, setPhase] = useState('visible'); // 'visible' | 'fading' | 'hidden'
+  const onCompleteRef = useRef(onComplete);
+
+  // Keep the latest callback without re-triggering the timers below.
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    const fadeTimer = setTimeout(() => {
+      setPhase('fading');
+      onCompleteRef.current?.();
+    }, DISPLAY_MS);
+
+    const hideTimer = setTimeout(() => {
+      setPhase('hidden');
+      document.body.style.overflow = '';
+    }, DISPLAY_MS + FADE_MS);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(hideTimer);
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+  if (phase === 'hidden') return null;
+
+  return (
+    <div
+      role="presentation"
+      aria-hidden="true"
+      className={`fixed inset-0 z-[200] flex items-center justify-center bg-dark transition-all ease-out ${
+        phase === 'fading'
+          ? 'opacity-0 scale-105 blur-sm pointer-events-none'
+          : 'opacity-100 scale-100 blur-none'
+      }`}
+      style={{ transitionDuration: `${FADE_MS}ms` }}
+    >
+      <div className="flex flex-col items-center gap-3">
+        <span className="font-display text-4xl sm:text-6xl font-semibold gold-text splash-glow">
+          Touchê
+        </span>
+        <span className="text-[10px] sm:text-xs font-mono tracking-[0.4em] uppercase text-white/25">
+          Costura &amp; Arreglos
+        </span>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/ui/AnimatedBackground.jsx">
+import { useMemo } from 'react';
+
+function Particles() {
+  // useMemo prevents re-generating random positions on every render
+  const particles = useMemo(() =>
+    Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      size: Math.random() * 2 + 1,
+      left: Math.random() * 100,
+      bottom: Math.random() * 100,
+      duration: Math.random() * 12 + 8,
+      delay: Math.random() * 10,
+    })),
+  []);
+
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="particle"
+          style={{
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            left: `${p.left}%`,
+            bottom: `${p.bottom}%`,
+            animationDuration: `${p.duration}s`,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+const ORBS = [
+  { id: 1, size: 600, top: '10%', left: '-10%', color: 'rgba(201,168,76,0.12)', duration: '18s', tx: '40px', ty: '-30px' },
+  { id: 2, size: 500, top: '55%', right: '-8%', color: 'rgba(255,255,255,0.08)', duration: '22s', tx: '-30px', ty: '20px' },
+  { id: 3, size: 400, top: '30%', left: '40%', color: 'rgba(201,168,76,0.1)', duration: '14s', tx: '20px', ty: '-40px' },
+  { id: 4, size: 350, bottom: '5%', left: '20%', color: 'rgba(255,255,255,0.07)', duration: '26s', tx: '-20px', ty: '15px' },
+];
+
+function DotGrid() {
+  return (
+    <div
+      className="absolute inset-0 opacity-[0.08]"
+      style={{
+        backgroundImage: 'radial-gradient(circle, rgba(201,168,76,0.5) 1px, transparent 1px)',
+        backgroundSize: '48px 48px',
+      }}
+    />
+  );
+}
+
+function DiagonalAccent() {
+  return (
+    <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="accent-line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="rgba(201,168,76,0)" />
+          <stop offset="40%" stopColor="rgba(201,168,76,0.12)" />
+          <stop offset="60%" stopColor="rgba(245,217,139,0.08)" />
+          <stop offset="100%" stopColor="rgba(201,168,76,0)" />
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="30%" x2="100%" y2="70%" stroke="url(#accent-line-grad)" strokeWidth="1.5" />
+      <line x1="0" y1="32%" x2="100%" y2="72%" stroke="rgba(201,168,76,0.05)" strokeWidth="0.8" />
+    </svg>
+  );
+}
+
+export default function AnimatedBackground() {
+  return (
+    <div className="animated-mesh fixed inset-0 z-0 pointer-events-none" aria-hidden="true" role="presentation">
+      {ORBS.map((orb) => (
+        <div
+          key={orb.id}
+          className="orb absolute rounded-full"
+          style={{
+            width: orb.size,
+            height: orb.size,
+            top: orb.top,
+            left: orb.left,
+            right: orb.right,
+            bottom: orb.bottom,
+            background: `radial-gradient(circle, ${orb.color}, transparent 70%)`,
+            animation: `orbFloat ${orb.duration} ease-in-out infinite alternate`,
+            transformOrigin: 'center',
+          }}
+        />
+      ))}
+      <DotGrid />
+      <DiagonalAccent />
+      <div
+        className="absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,0.8) 100%)' }}
+      />
+      <Particles />
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/ui/GlassCard.jsx">
+// Reusable glassmorphism card — used across Services, Reviews, etc.
+import { useScrollReveal } from '../../hooks/useScrollReveal';
+
+/**
+ * @param {object}  props
+ * @param {string}  props.className   - Extra Tailwind classes
+ * @param {boolean} props.hover       - Whether to apply hover lift effect
+ * @param {boolean} props.reveal      - Whether to animate on scroll reveal
+ * @param {number}  props.revealDelay - Delay multiplier for staggered reveals (0–5)
+ * @param {React.ReactNode} props.children
+ */
+export default function GlassCard({
+  children,
+  className = '',
+  hover = false,
+  reveal = false,
+  revealDelay = 0,
+  ...rest
+}) {
+  const { ref, isVisible } = useScrollReveal();
+
+  const baseClasses =
+    'bg-white/[0.04] backdrop-blur-md border border-white/[0.08] rounded-2xl';
+
+  const hoverClasses = hover
+    ? 'transition-all duration-500 cursor-default hover:bg-white/[0.08] hover:border-gold-500/25 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(201,168,76,0.12)]'
+    : '';
+
+  const revealClasses = reveal
+    ? `transition-all duration-700 ${
+        isVisible
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-8'
+      }`
+    : '';
+
+  const delayStyle = reveal
+    ? { transitionDelay: `${revealDelay * 120}ms` }
+    : {};
+
+  return (
+    <div
+      ref={reveal ? ref : undefined}
+      className={`${baseClasses} ${hoverClasses} ${revealClasses} ${className}`}
+      style={delayStyle}
+      {...rest}
+    >
+      {children}
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/ui/ScrollReveal.jsx">
+// Reusable scroll-triggered "fade up" reveal wrapper powered by Framer Motion.
+// Wrap any section/component with <ScrollReveal> to animate it in as the
+// user scrolls it into view.
+import { motion } from 'framer-motion';
+
+/**
+ * @param {object}          props
+ * @param {React.ReactNode} props.children
+ * @param {string}          [props.className]
+ * @param {number}          [props.delay]    - Animation delay in seconds
+ * @param {number}          [props.duration] - Animation duration in seconds
+ * @param {keyof typeof motion} [props.as]    - Underlying tag (default 'div')
+ */
+export default function ScrollReveal({
+  children,
+  className = '',
+  delay = 0,
+  duration = 0.6,
+  as = 'div',
+  ...rest
+}) {
+  const MotionTag = motion[as] ?? motion.div;
+
+  return (
+    <MotionTag
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      className={className}
+      {...rest}
+    >
+      {children}
+    </MotionTag>
+  );
+}
+</file>
+
+<file path="src/components/ui/SectionWrapper.jsx">
+// Consistent section padding, max-width centering and scroll-reveal wrapper
+import { useScrollReveal } from '../../hooks/useScrollReveal';
+
+/**
+ * @param {string} id          - Section id for anchor links
+ * @param {string} className   - Extra classes on the outer <section>
+ * @param {string} innerClass  - Extra classes on the inner container
+ */
+export default function SectionWrapper({
+  id,
+  children,
+  className = '',
+  innerClass = '',
+}) {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.08 });
+
+  return (
+    <section
+      id={id}
+      ref={ref}
+      className={`relative py-28 px-4 sm:px-6 lg:px-8 ${className}`}
+    >
+      <div
+        className={`
+          max-w-6xl mx-auto
+          transition-all duration-700 ease-out
+          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+          ${innerClass}
+        `}
+      >
+        {children}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/ui/StarRating.jsx">
+// Reusable star rating display and input component
+import { useState } from 'react';
+import { Star } from 'lucide-react';
+
+/**
+ * @param {object}   props
+ * @param {number}   props.value      - Current rating (1–5)
+ * @param {function} props.onChange   - Called with new rating; omit for read-only
+ * @param {number}   props.size       - Icon size in px (default 16)
+ */
+export default function StarRating({ value = 0, onChange, size = 16 }) {
+  const [hovered, setHovered] = useState(0);
+  const isInteractive = typeof onChange === 'function';
+  const displayValue = isInteractive ? (hovered || value) : value;
+
+  return (
+    <div
+      className="flex gap-0.5"
+      role={isInteractive ? 'radiogroup' : 'img'}
+      aria-label={`Rating: ${value} out of 5 stars`}
+    >
+      {[1, 2, 3, 4, 5].map((star) => (
+        <button
+          key={star}
+          type="button"
+          disabled={!isInteractive}
+          onClick={() => isInteractive && onChange(star)}
+          onMouseEnter={() => isInteractive && setHovered(star)}
+          onMouseLeave={() => isInteractive && setHovered(0)}
+          className={`transition-colors duration-150 ${
+            isInteractive
+              ? 'cursor-pointer hover:scale-110 active:scale-95'
+              : 'cursor-default pointer-events-none'
+          }`}
+          aria-label={`${star} star${star !== 1 ? 's' : ''}`}
+        >
+          <Star
+            size={size}
+            className={
+              star <= displayValue
+                ? 'text-gold-400 fill-gold-400'
+                : 'text-white/20 fill-transparent'
+            }
+          />
+        </button>
+      ))}
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/WhatsAppButton.jsx">
+import { useI18n } from '../context/i18nContext';
+
+const PHONE_NUMBER = '51936797870';
+
+export default function WhatsAppButton({ bottomOffset = 'bottom-6' }) {
+  const { t } = useI18n();
+  const message = encodeURIComponent(t.whatsapp.defaultMessage);
+  const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${message}`;
+
+  return (
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+      className={`fixed ${bottomOffset} right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20c45a] shadow-[0_4px_24px_rgba(37,211,102,0.45)] hover:shadow-[0_6px_32px_rgba(37,211,102,0.60)] hover:scale-110 active:scale-95 transition-all duration-300`}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        viewBox="0 0 48 48"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path fill="#fff" d="M4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5c5.1,0,9.8,2,13.4,5.6 C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19c0,0,0,0,0,0h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3z" />
+        <path fill="#cfd8dc" d="M24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19h0c-3.2,0-6.3-0.8-9.1-2.3 L4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5 M24,4L24,4C13,4,4,13,4,24c0,3.4,0.8,6.7,2.5,9.6L3.9,43c-0.1,0.3,0,0.7,0.3,1c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.2,0,0.3,0l9.7-2.5c2.8,1.5,6,2.2,9.2,2.2c11,0,20-9,20-20c0-5.3-2.1-10.4-5.8-14.1C34.4,6.1,29.4,4,24,4L24,4z" />
+        <path fill="#40c351" d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8 l6-1.6l0.6,0.3c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z" />
+        <path fill="#fff" fillRule="evenodd" d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0 s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3 c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9 c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8 c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8C20.6,19.3,19.7,17,19.3,16z" clipRule="evenodd" />
+      </svg>
+    </a>
+  );
+}
+</file>
+
+<file path="src/context/AuthContext.jsx">
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react';
+import {
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut as firebaseSignOut,
+} from 'firebase/auth';
+import { auth, googleProvider } from '../lib/firebase';
+
+const AuthContext = createContext(null);
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [authError, setAuthError] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+      setLoading(false);
+    });
+    return unsubscribe;
+  }, []);
+
+  const signInWithGoogle = useCallback(async () => {
+    setAuthError(null);
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      console.error('Google sign-in error:', err);
+      // Firebase error codes: https://firebase.google.com/docs/reference/js/auth#autherrorcodes
+      let message = 'Error al iniciar sesión. Intenta de nuevo.';
+      if (err.code === 'auth/popup-closed-by-user') {
+        message = 'Ventana de inicio cerrada antes de completar el inicio.';
+      } else if (err.code === 'auth/unauthorized-domain') {
+        message = '⚠️ Dominio no autorizado en Firebase. Verifica "Authorized domains" en Firebase Console.';
+      } else if (err.code === 'auth/network-request-failed') {
+        message = 'Error de red. Comprueba tu conexión.';
+      }
+      setAuthError(message);
+    }
+  }, []);
+
+  const signOut = useCallback(async () => {
+    setAuthError(null);
+    try {
+      await firebaseSignOut(auth);
+    } catch (err) {
+      console.error('Sign-out error:', err);
+      setAuthError('Error al cerrar sesión.');
+    }
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ user, loading, authError, signInWithGoogle, signOut }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export function useAuth() {
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error('useAuth must be used inside <AuthProvider>');
+  return ctx;
+}
+</file>
+
+<file path="src/context/i18nContext.jsx">
+// Internationalisation context — manages language state and provides translations
+import { createContext, useContext, useState, useCallback } from 'react';
+import es from '../locales/es';
+import en from '../locales/en';
+
+const DICTIONARIES = { es, en };
+const DEFAULT_LANGUAGE = 'es';
+
+const I18nContext = createContext(null);
+
+export function I18nProvider({ children }) {
+  const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
+
+  const t = DICTIONARIES[language];
+
+  const toggleLanguage = useCallback(() => {
+    setLanguage((prev) => (prev === 'es' ? 'en' : 'es'));
+  }, []);
+
+  const switchLanguage = useCallback((lang) => {
+    if (DICTIONARIES[lang]) setLanguage(lang);
+  }, []);
+
+  return (
+    <I18nContext.Provider value={{ language, t, toggleLanguage, switchLanguage }}>
+      {children}
+    </I18nContext.Provider>
+  );
+}
+
+// Convenience hook — throws if used outside provider
+export function useI18n() {
+  const ctx = useContext(I18nContext);
+  if (!ctx) throw new Error('useI18n must be used inside <I18nProvider>');
+  return ctx;
+}
+</file>
+
+<file path="src/hooks/usePWAInstall.js">
+// Hook that listens for the browser's `beforeinstallprompt` event and
+// exposes a simple API to trigger the native "Add to Home Screen" prompt.
+import { useState, useEffect, useCallback } from 'react';
+
+export function usePWAInstall() {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isInstallable, setIsInstallable] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
+
+  useEffect(() => {
+    // Already running as an installed PWA?
+    const standalone =
+      window.matchMedia?.('(display-mode: standalone)').matches ||
+      window.navigator.standalone === true;
+    setIsInstalled(standalone);
+
+    const handleBeforeInstall = (event) => {
+      // Prevent the mini-infobar from appearing automatically
+      event.preventDefault();
+      setDeferredPrompt(event);
+      setIsInstallable(true);
+    };
+
+    const handleAppInstalled = () => {
+      setIsInstalled(true);
+      setIsInstallable(false);
+      setDeferredPrompt(null);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
+  }, []);
+
+  const promptInstall = useCallback(async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === 'accepted') {
+      setIsInstalled(true);
+    }
+
+    setDeferredPrompt(null);
+    setIsInstallable(false);
+  }, [deferredPrompt]);
+
+  return { isInstallable, isInstalled, promptInstall };
+}
+</file>
+
+<file path="src/hooks/useScrollReveal.js">
+// Intersection Observer hook for scroll-triggered reveal animations
+import { useEffect, useRef, useState } from 'react';
+
+/**
+ * @param {IntersectionObserverInit} options
+ * @returns {{ ref: React.RefObject, isVisible: boolean }}
+ */
+export function useScrollReveal(options = {}) {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el); // Fire once
+        }
+      },
+      { threshold: 0.15, ...options }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+}
+</file>
+
+<file path="src/hooks/useTypewriter.js">
+// Typewriter effect hook — types out a string character by character.
+// Runs only once `start` is true; resets when the target string changes.
+import { useState, useEffect, useRef } from 'react';
+
+/**
+ * @param {string}  text       - The full string to type out
+ * @param {number}  speed      - Milliseconds per character (default 45)
+ * @param {number}  startDelay - Milliseconds before typing begins (default 300)
+ * @param {boolean} start      - Gate that controls when typing is allowed to begin.
+ *                                While false, nothing happens (no ticking in the
+ *                                background) — useful to wait for a splash screen,
+ *                                page transition, etc.
+ * @returns {{ displayed: string, isDone: boolean }}
+ */
+export function useTypewriter(text, speed = 45, startDelay = 300, start = true) {
+  const [displayed, setDisplayed] = useState('');
+  const [isDone, setIsDone] = useState(false);
+  const indexRef = useRef(0);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (!start) return;
+
+    // Reset state whenever the target text changes (e.g. user logs in)
+    // or typing becomes allowed to start.
+    setDisplayed('');
+    setIsDone(false);
+    indexRef.current = 0;
+
+    const startTimeout = setTimeout(() => {
+      timerRef.current = setInterval(() => {
+        const next = indexRef.current + 1;
+        setDisplayed(text.slice(0, next));
+        indexRef.current = next;
+
+        if (next >= text.length) {
+          clearInterval(timerRef.current);
+          setIsDone(true);
+        }
+      }, speed);
+    }, startDelay);
+
+    return () => {
+      clearTimeout(startTimeout);
+      clearInterval(timerRef.current);
+    };
+  }, [text, speed, startDelay, start]);
+
+  return { displayed, isDone };
+}
+</file>
+
+<file path="src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark text-white font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-gold-500 text-dark;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-600 rounded-full;
+  }
+}
+
+@layer components {
+  .gold-text {
+    background: linear-gradient(135deg, #c9a84c 0%, #f5d98b 50%, #c9a84c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500 hover:bg-white/10 hover:border-gold-500/30 hover:-translate-y-2 hover:shadow-2xl;
+    --tw-shadow-color: rgba(201, 168, 76, 0.15);
+  }
+
+  .btn-gold {
+    @apply relative px-8 py-3.5 rounded-full font-body font-semibold text-dark overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, #c9a84c 0%, #f5d98b 50%, #c9a84c 100%);
+    background-size: 200% auto;
+  }
+
+  .btn-gold:hover {
+    background-position: right center;
+    @apply shadow-lg scale-105;
+    box-shadow: 0 0 32px rgba(201, 168, 76, 0.4);
+  }
+
+  .btn-ghost {
+    @apply px-8 py-3.5 rounded-full font-body font-medium border border-gold-500/50 text-gold-400 transition-all duration-300 hover:bg-gold-500/10 hover:border-gold-400;
+  }
+
+  .section-label {
+    @apply text-xs font-mono tracking-[0.3em] uppercase text-gold-500 mb-3;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-semibold text-white leading-tight;
+  }
+}
+
+/* Animated mesh background */
+.animated-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(20, 20, 25, 0.9) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(10, 10, 15, 0.95) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(5, 5, 8, 0.8) 0%, transparent 60%),
+    #0A0A0A;
+  animation: meshDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes meshDrift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(5deg); }
+}
+
+/* Floating orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orbFloat var(--duration, 10s) ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  100% { transform: translate(var(--tx, 30px), var(--ty, -20px)) scale(1.1); opacity: 0.6; }
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #c9a84c;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 0.9s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Fade-in-up utility */
+.fade-in-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+.fade-in-up-delay-1 { animation-delay: 0.15s; }
+.fade-in-up-delay-2 { animation-delay: 0.30s; }
+.fade-in-up-delay-3 { animation-delay: 0.45s; }
+.fade-in-up-delay-4 { animation-delay: 0.60s; }
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Splash screen glow */
+.splash-glow {
+  filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.45));
+  animation: splashGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes splashGlow {
+  0% { filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.3)); }
+  100% { filter: drop-shadow(0 0 26px rgba(201, 168, 76, 0.7)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, .orb, .animated-mesh, .typewriter-cursor {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Hero title responsive font sizes */
+.hero-title {
+  font-size: 4rem;
+}
+
+@media (min-width: 950px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem !important;
+  }
+}
+
+/* Service card hover effect — desktop (pointer devices) */
+.service-card .service-description {
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin 0.3s ease;
+}
+
+.service-card:hover .service-description {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+/*
+ * On touch devices (phones/tablets) there is no hover event, so descriptions
+ * are always visible to ensure mobile users can read service details.
+ */
+@media (hover: none) {
+  .service-card .service-description {
+    max-height: 200px !important;
+    opacity: 1 !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Floating gold particles */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  background-color: #c9a84c;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp linear infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
+/* Forzar visibilidad de descripciones en dispositivos táctiles (sin hover) */
+@media (hover: none) {
+  .service-description {
+    max-height: 200px !important;
+    opacity: 1 !important;
+    margin-top: 0.5rem !important;
+  }
+}
+</file>
+
+<file path="src/lib/firebase.js">
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId:         import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket:     import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId:             import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId:     import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+export const db = getFirestore(app);
+
+export default app;
+</file>
+
+<file path="src/locales/en.js">
+const en = {
+  nav: {
+    philosophy: 'Philosophy',
+    services: 'Services',
+    reviews: 'Reviews',
+    faq: 'FAQ',
+    location: 'Location',
+    contact: 'Contact',
+    signIn: 'Sign in',
+    signOut: 'Sign out',
+    langToggle: 'ES',
+  },
+  hero: {
+    eyebrow: 'Haute Couture Repairs · Surco, Lima',
+    title: 'Precision that transforms.',
+    subtitle: 'Touchê: Precision repairs and adjustments. High-quality alterations for your favorite garments.',
+    ctaBook: 'Book your appointment',
+    ctaServices: 'See services',
+    badge: 'Available in Surco',
+    greetingLoggedOut: 'Welcome to the art of perfect sewing.',
+    greetingLoggedIn: 'Hello {name}, what garment shall we transform today?',
+  },
+  philosophy: {
+    eyebrow: 'Our philosophy',
+    title: 'The art of fine repair',
+    text: 'At Touchê we understand that every stitch counts. We don\u2019t just repair garments; we extend the life of your favorite pieces with precise repair techniques and undetectable finishes.',
+    process: {
+      title: 'Our process',
+      steps: [
+        {
+          id: 'evaluation',
+          name: 'Assessment',
+          description: 'We examine each garment closely, take measurements, and define the best technical approach.',
+          icon: 'ruler',
+        },
+        {
+          id: 'adjustment',
+          name: 'Technical Adjustment',
+          description: 'We apply precision sewing techniques, tailored to the fabric and cut of your garment.',
+          icon: 'scissors',
+        },
+        {
+          id: 'finish',
+          name: 'Flawless Finish',
+          description: 'A final quality check to guarantee an impeccable, undetectable result.',
+          icon: 'check',
+        },
+      ],
+    },
+  },
+  services: {
+    eyebrow: 'Our services',
+    title: 'Excellence in every stitch',
+    subtitle: 'From perfect fit to invisible repairs. Artisanal care for your garments.',
+    items: [
+      {
+        id: 'alterations',
+        name: 'Precision Alterations',
+        tagline: 'The perfect fit',
+        description: 'Hemming, tapering, resizing. We make your clothes feel like new.',
+        icon: 'scissors',
+      },
+      {
+        id: 'repairs',
+        name: 'Delicate Repairs',
+        tagline: 'Restore your favorites',
+        description: 'Zipper replacement, invisible mending, seam reconstruction and more.',
+        icon: 'heart',
+      },
+      {
+        id: 'special',
+        name: 'Special Adjustments',
+        tagline: 'For unique occasions',
+        description: 'Adjustments for evening gowns, suits, and haute couture garments.',
+        icon: 'sparkles',
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'Help',
+    title: 'Frequently asked questions',
+    subtitle: 'Everything you need to know before visiting us.',
+    items: [
+      {
+        question: 'How long does a regular alteration or fitting take?',
+        answer: 'It depends on the complexity, but standard alterations take between 2 to 4 business days.',
+      },
+      {
+        question: 'Do you make garments from scratch?',
+        answer: 'No, we specialize strictly in technical alterations, fittings, and restoration of existing garments.',
+      },
+      {
+        question: 'What payment methods do you accept?',
+        answer: 'We accept Yape, Plin, bank transfers, and cash.',
+      },
+    ],
+  },
+  reviews: {
+    eyebrow: 'Happy clients',
+    title: 'What our clients say',
+    subtitle: 'Our clients\' trust is our greatest recognition.',
+    leaveReview: 'Leave a review',
+    loginPrompt: 'Sign in to share your experience',
+    loginCta: 'Connect with Google',
+    reviewPlaceholder: 'How was your experience at Touchê?',
+    ratingLabel: 'Your rating',
+    submitReview: 'Publish review',
+    cancel: 'Cancel',
+    thankYou: 'Thank you for your review!',
+    loadingReviews: 'Loading reviews...',
+    noReviews: 'Be the first to leave a review.',
+    verifiedCustomer: 'Verified customer',
+    alreadyReviewed: 'You already left a review. Thank you!',
+    submitError: 'Failed to publish. Please try again.',
+    loadError: 'Could not load live reviews.',
+  },
+  location: {
+    eyebrow: 'Find us',
+    title: 'Our Location',
+    address: 'Calle Pierre Simón Laplace MZ H lote 5, Surco',
+    city: 'Santiago de Surco, Lima — Peru',
+    openMaps: 'Open in Google Maps',
+    getDirections: 'Get directions',
+    schedule: {
+      title: 'Opening hours',
+      weekdays: 'Monday to Sunday',
+      weekdaysHours: '8:00 am – 11:00 pm',
+      saturday: 'Saturday',
+      saturdayHours: '8:00 am – 11:00 pm',
+      sunday: 'Sunday',
+      sundayHours: '8:00 am – 11:00 pm',
+    },
+  },
+  footer: {
+    tagline: 'Where every stitch tells a story.',
+    contact: 'Contact',
+    phone: '+51 936 797 870',
+    address: 'Calle Pierre Simón Laplace MZ H lote 5, Surco, Lima',
+    owner: 'Owned by Johanny Garcia',
+    rights: 'All rights reserved',
+    whatsapp: 'Message on WhatsApp',
+    links: {
+      services: 'Services',
+      reviews: 'Reviews',
+      location: 'Location',
+    },
+  },
+  whatsapp: {
+    defaultMessage: 'Hello Johanny, I would like to inquire about your repair and alteration services at Touchê.',
+  },
+  pwa: {
+    installTitle: 'Install Touchê',
+    installDescription: 'Add the app to your home screen for faster access.',
+    install: 'Install',
+    dismiss: 'Not now',
+  },
+  auth: {
+    signingIn: 'Signing in...',
+    signInError: 'Sign-in failed. Please try again.',
+    signOutError: 'Sign-out failed.',
+  },
+};
+
+export default en;
+</file>
+
+<file path="src/locales/es.js">
+const es = {
+  nav: {
+    philosophy: 'Filosofía',
+    services: 'Servicios',
+    reviews: 'Reseñas',
+    faq: 'Ayuda',
+    location: 'Ubicación',
+    contact: 'Contacto',
+    signIn: 'Iniciar sesión',
+    signOut: 'Cerrar sesión',
+    langToggle: 'EN',
+  },
+  hero: {
+    eyebrow: 'Reparaciones de alta costura · Surco, Lima',
+    title: 'Precisión que transforma.',
+    subtitle: 'Touchê: Reparaciones y ajustes de precisión. Arreglos de alta calidad para tus prendas favoritas.',
+    ctaBook: 'Agenda tu cita',
+    ctaServices: 'Ver servicios',
+    badge: 'Disponible en Surco',
+    greetingLoggedOut: 'Bienvenido al arte de la costura perfecta.',
+    greetingLoggedIn: 'Hola {name}, ¿qué prenda vamos a transformar hoy?',
+  },
+  philosophy: {
+    eyebrow: 'Nuestra filosofía',
+    title: 'El arte de la compostura',
+    text: 'En Touchê entendemos que cada costura cuenta. No solo reparamos prendas; extendemos la vida de tu vestuario favorito con técnicas de compostura precisas y acabados indetectables.',
+    process: {
+      title: 'Nuestro proceso',
+      steps: [
+        {
+          id: 'evaluation',
+          name: 'Evaluación',
+          description: 'Revisamos cada prenda con detalle, tomamos medidas y definimos el mejor enfoque técnico.',
+          icon: 'ruler',
+        },
+        {
+          id: 'adjustment',
+          name: 'Ajuste Técnico',
+          description: 'Aplicamos técnicas de costura de precisión, adaptadas al tejido y corte de tu prenda.',
+          icon: 'scissors',
+        },
+        {
+          id: 'finish',
+          name: 'Acabado Perfecto',
+          description: 'Revisión final de calidad para garantizar un resultado impecable e indetectable.',
+          icon: 'check',
+        },
+      ],
+    },
+  },
+  services: {
+    eyebrow: 'Nuestros servicios',
+    title: 'Excelencia en cada puntada',
+    subtitle: 'Desde el ajuste perfecto hasta reparaciones invisibles. Cuidado artesanal para tus prendas.',
+    items: [
+      {
+        id: 'alterations',
+        name: 'Arreglos de precisión',
+        tagline: 'El ajuste perfecto',
+        description: 'Bastas, entallados, reducción o ampliación de tallas. Dejamos tu ropa como nueva.',
+        icon: 'scissors',
+      },
+      {
+        id: 'repairs',
+        name: 'Reparaciones delicadas',
+        tagline: 'Restauramos tus favoritas',
+        description: 'Cambio de cierres, remiendos invisibles, reconstrucción de costuras y más.',
+        icon: 'heart',
+      },
+      {
+        id: 'special',
+        name: 'Ajustes especiales',
+        tagline: 'Para ocasiones únicas',
+        description: 'Ajustes en vestidos de fiesta, trajes sastre y prendas de alta costura.',
+        icon: 'sparkles',
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'Ayuda',
+    title: 'Preguntas frecuentes',
+    subtitle: 'Todo lo que necesitas saber antes de visitarnos.',
+    items: [
+      {
+        question: '¿Cuánto demora un ajuste o entalle regular?',
+        answer: 'Depende de la complejidad, pero los arreglos estándar toman entre 2 a 4 días hábiles.',
+      },
+      {
+        question: '¿Realizan confección de prendas desde cero?',
+        answer: 'No, nos especializamos estrictamente en ajustes técnicos, entalles y restauración de prendas existentes.',
+      },
+      {
+        question: '¿Qué métodos de pago aceptan?',
+        answer: 'Aceptamos Yape, Plin, transferencias bancarias y efectivo.',
+      },
+    ],
+  },
+  reviews: {
+    eyebrow: 'Clientes felices',
+    title: 'Lo que dicen de nosotros',
+    subtitle: 'La confianza de nuestros clientes es nuestro mayor reconocimiento.',
+    leaveReview: 'Dejar una reseña',
+    loginPrompt: 'Inicia sesión para compartir tu experiencia',
+    loginCta: 'Conectar con Google',
+    reviewPlaceholder: '¿Cómo fue tu experiencia en Touchê?',
+    ratingLabel: 'Tu valoración',
+    submitReview: 'Publicar reseña',
+    cancel: 'Cancelar',
+    thankYou: '¡Gracias por tu reseña!',
+    loadingReviews: 'Cargando reseñas...',
+    noReviews: 'Sé el primero en dejar una reseña.',
+    verifiedCustomer: 'Cliente verificado',
+    alreadyReviewed: 'Ya dejaste una reseña. ¡Muchas gracias!',
+    submitError: 'Error al publicar. Intenta de nuevo.',
+    loadError: 'No se pudieron cargar las reseñas en tiempo real.',
+  },
+  location: {
+    eyebrow: 'Encuéntranos',
+    title: 'Nuestra Ubicación',
+    address: 'Calle Pierre Simón Laplace MZ H lote 5, Surco',
+    city: 'Santiago de Surco, Lima — Perú',
+    openMaps: 'Abrir en Google Maps',
+    getDirections: 'Cómo llegar',
+    schedule: {
+      title: 'Horario de atención',
+      weekdays: 'Lunes a Domingo',
+      weekdaysHours: '8:00 am – 11:00 pm',
+      saturday: 'Sábado',
+      saturdayHours: '8:00 am – 11:00 pm',
+      sunday: 'Domingo',
+      sundayHours: '8:00 am – 11:00 pm',
+    },
+  },
+  footer: {
+    tagline: 'Donde cada puntada cuenta una historia.',
+    contact: 'Contacto',
+    phone: '+51 936 797 870',
+    address: 'Calle Pierre Simón Laplace MZ H lote 5, Surco, Lima',
+    owner: 'Propiedad de Johanny Garcia',
+    rights: 'Todos los derechos reservados',
+    whatsapp: 'Escribir por WhatsApp',
+    links: {
+      services: 'Servicios',
+      reviews: 'Reseñas',
+      location: 'Ubicación',
+    },
+  },
+  whatsapp: {
+    defaultMessage: 'Hola Johanny, me gustaría consultar sobre sus servicios de reparación y ajustes en Touchê.',
+  },
+  pwa: {
+    installTitle: 'Instalar Touchê',
+    installDescription: 'Agrega la app a tu pantalla de inicio para un acceso más rápido.',
+    install: 'Instalar',
+    dismiss: 'Ahora no',
+  },
+  auth: {
+    signingIn: 'Iniciando sesión...',
+    signInError: 'Error al iniciar sesión. Intenta de nuevo.',
+    signOutError: 'Error al cerrar sesión.',
+  },
+};
+
+export default es;
+</file>
+
+<file path="src/main.jsx">
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { AuthProvider } from './context/AuthContext';
+import { I18nProvider } from './context/i18nContext';
+
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Root element #root not found in index.html');
+}
+
+createRoot(rootElement).render(
+  <StrictMode>
+    <I18nProvider>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </I18nProvider>
+  </StrictMode>
+);
+</file>
+
+<file path="tailwind.config.js">
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        dark: '#0A0A0A',
+        'dark-100': '#111111',
+        gold: {
+          300: '#F5D98B',
+          400: '#E8C55A',
+          500: '#C9A84C',
+          600: '#A0793A',
+        },
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+};
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: false,
+      includeAssets: ['favicon.svg', 'icons/*.png'],
+    }),
+  ],
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          firebase: ['firebase/app', 'firebase/auth', 'firebase/firestore'],
+          motion: ['framer-motion'],
+        },
+      },
+    },
+  },
+});
+</file>
+
+</files>
