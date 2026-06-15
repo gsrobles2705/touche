@@ -151,13 +151,13 @@ export default defineConfig([
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    
+
     <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Touchê — Costura & Arreglos de Precisión" />
     <meta property="og:description" content="Reparaciones y ajustes de alta calidad en Surco, Lima. Agenda tu cita con Johanny Garcia." />
-    <meta property="og:image" content="https://tu-dominio.com/icons/icon-512.png" />
-    <meta property="og:url" content="https://tu-dominio.com" />
+    <meta property="og:image" content="https://touche-amber.vercel.app/icons/icon-512.png" />
+    <meta property="og:url" content="https://touche-amber.vercel.app" />
     <meta property="og:locale" content="es_PE" />
     <meta property="og:site_name" content="Touchê" />
 
@@ -165,7 +165,7 @@ export default defineConfig([
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Touchê — Costura & Arreglos de Precisión" />
     <meta name="twitter:description" content="Reparaciones de precisión en Surco, Lima." />
-    <meta name="twitter:image" content="https://tu-dominio.com/icons/icon-512.png" />
+    <meta name="twitter:image" content="https://touche-amber.vercel.app/icons/icon-512.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#c9a84c" />
@@ -176,7 +176,7 @@ export default defineConfig([
     <meta property="og:title"       content="Touchê — Costura & Arreglos de Precisión" />
     <meta property="og:description" content="Reparaciones y ajustes de alta calidad en Surco, Lima. Agenda tu cita con Johanny Garcia." />
     <meta property="og:image"       content="/icons/icon-512.png" />
-    <meta property="og:url"         content="https://tu-dominio.com" />
+    <meta property="og:url"         content="https://touche-amber.vercel.app" />
     <meta property="og:locale"      content="es_PE" />
     <meta property="og:site_name"   content="Touchê" />
 
@@ -216,6 +216,7 @@ export default defineConfig([
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "firebase": "^10.12.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.383.0",
@@ -294,14 +295,14 @@ export default {
 <file path="public/robots.txt">
 User-agent: *
 Allow: /
-Sitemap: https://tu-dominio.com/sitemap.xml
+Sitemap: https://touche-amber.vercel.app/sitemap.xml
 </file>
 
 <file path="public/sitemap.xml">
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tu-dominio.com/</loc>
+    <loc>https://touche-amber.vercel.app/</loc>
     <lastmod>2026-06-14</lastmod>
     <priority>1.0</priority>
   </url>
@@ -329,6 +330,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 <file path="src/App.jsx">
 import { useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import AnimatedBackground from './components/ui/AnimatedBackground';
 import ScrollReveal from './components/ui/ScrollReveal';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -371,7 +373,6 @@ export default function App() {
               <FAQ />
             </ScrollReveal>
 
-            {/* Reviews has Firestore dependency — isolate failures */}
             <ScrollReveal>
               <ErrorBoundary>
                 <Reviews />
@@ -391,6 +392,9 @@ export default function App() {
         <WhatsAppButton bottomOffset={bannerVisible ? 'bottom-24' : 'bottom-6'} />
         <InstallBanner onVisibilityChange={setBannerVisible} />
       </div>
+
+      {/* Opcional: monitoreo de rendimiento de Vercel */}
+      <SpeedInsights />
     </>
   );
 }

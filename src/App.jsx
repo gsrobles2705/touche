@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import AnimatedBackground from './components/ui/AnimatedBackground';
 import ScrollReveal from './components/ui/ScrollReveal';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -41,7 +42,6 @@ export default function App() {
               <FAQ />
             </ScrollReveal>
 
-            {/* Reviews has Firestore dependency — isolate failures */}
             <ScrollReveal>
               <ErrorBoundary>
                 <Reviews />
@@ -61,6 +61,9 @@ export default function App() {
         <WhatsAppButton bottomOffset={bannerVisible ? 'bottom-24' : 'bottom-6'} />
         <InstallBanner onVisibilityChange={setBannerVisible} />
       </div>
+
+      {/* Opcional: monitoreo de rendimiento de Vercel */}
+      <SpeedInsights />
     </>
   );
 }
